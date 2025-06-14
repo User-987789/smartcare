@@ -1,0 +1,132 @@
+﻿@model IEnumerable<Prescription>
+@{
+    ViewData["Title"] = "Patient Prescriptions";
+    var patient = ViewBag.Patient as Patient;
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-pills text-warning"></i> Prescriptions for @patient.User.FullName</h2>
+    <div>
+        <a asp-action="AddPrescription" asp-route-patientId="@patient.PatientId" class="btn btn-success">
+            <i class="fas fa-plus"></i> Add New Prescription
+        </a>
+        <a asp-action="Patients" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Patients
+        </a>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <div class="card bg-info text-white">
+            <div class="card-body">
+                <h6>Patient Information</h6>
+                <p class="mb-0"><strong>@patient.User.FullName</strong></p>
+                <p class="mb-0">ID: @patient.PatientNumber</p>
+                <p class="mb-0">Blood Group: @(patient.BloodGroup ?? "Unknown")</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <h6>Prescription Summary</h6>
+                <p class="mb-0">Total Prescriptions: @Model.Count()</p>
+                <p class="mb-0">Active: @Model.Count(p => p.PrescribedDate.AddDays(p.Duration) >= DateTime.Now)</p>
+                <p class="mb-0">Completed: @Model.Count(p => p.PrescribedDate.AddDays(p.Duration) < DateTime.Now)</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.Any())
+{
+    <div class="row g-4">
+        @foreach (var prescription in Model)
+        {
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-light border-0">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-1">
+                                    <i class="fas fa-pills text-warning me-2"></i>
+                                    @prescription.MedicineName
+                                </h6>
+                                <small class="text-muted">Prescribed by Dr. @prescription.Doctor.User.FullName</small>
+                            </div>
+                            @{
+                                var isActive = prescription.PrescribedDate.AddDays(prescription.Duration) >= DateTime.Now;
+                            }
+                            <span class="badge bg-@(isActive ? "success" : "secondary")">
+                                @(isActive ? "Active" : "Completed")
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="prescription-details">
+                            <div class="row g-3 mb-3">
+                                <div class="col-sm-6">
+                                    <small class="text-muted d-block">
+                                        <i class="fas fa-capsules me-1"></i>Dosage
+                                    </small>
+                                    <strong>@prescription.Dosage</strong>
+                                </div>
+                                <div class="col-sm-6">
+                                    <small class="text-muted d-block">
+                                        <i class="fas fa-clock me-1"></i>Frequency
+                                    </small>
+                                    <strong>@prescription.Frequency</strong>
+                                </div>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-sm-6">
+                                    <small class="text-muted d-block">
+                                        <i class="fas fa-calendar me-1"></i>Duration
+                                    </small>
+                                    <strong>@prescription.Duration days</strong>
+                                </div>
+                                <div class="col-sm-6">
+                                    <small class="text-muted d-block">
+                                        <i class="fas fa-calendar-check me-1"></i>End Date
+                                    </small>
+                                    <strong>@prescription.PrescribedDate.AddDays(prescription.Duration).ToString("MMM dd, yyyy")</strong>
+                                </div>
+                            </div>
+
+                            @if (!string.IsNullOrEmpty(prescription.Instructions))
+                            {
+                                <div class="mb-3">
+                                    <small class="text-muted d-block">
+                                        <i class="fas fa-info-circle me-1"></i>Instructions
+                                    </small>
+                                    <p class="mb-0">@prescription.Instructions</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="card-footer bg-light border-0">
+                        <small class="text-muted">
+                            <i class="fas fa-calendar me-1"></i>
+                            Prescribed on @prescription.PrescribedDate.ToString("MMMM dd, yyyy")
+                        </small>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="text-center py-5">
+        <div class="empty-state">
+            <i class="fas fa-pills fa-4x text-muted mb-4"></i>
+            <h4>No Prescriptions Found</h4>
+            <p class="text-muted mb-4">This patient has no prescriptions yet.</p>
+            <a asp-action="AddPrescription" asp-route-patientId="@patient.PatientId" class="btn btn-success btn-lg">
+                <i class="fas fa-plus"></i> Add First Prescription
+            </a>
+        </div>
+    </div>
+}

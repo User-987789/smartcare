@@ -1,0 +1,225 @@
+﻿@model DashboardViewModel
+@{
+    ViewData["Title"] = "Patient Dashboard";
+}
+
+<div class="dashboard-header mb-4">
+    <div class="row align-items-center">
+        <div class="col">
+            <h2 class="mb-0">
+                <i class="fas fa-heart text-danger"></i> Patient Dashboard
+            </h2>
+            <p class="text-muted mb-0">Welcome back, @Model.UserName</p>
+        </div>
+        <div class="col-auto">
+            <span class="badge bg-danger fs-6">@DateTime.Now.ToString("MMMM dd, yyyy")</span>
+        </div>
+    </div>
+</div>
+
+<!-- Health Summary Cards -->
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm text-white bg-primary">
+            <div class="card-body text-center">
+                <i class="fas fa-calendar-plus fa-2x mb-2"></i>
+                <h6 class="card-title">Upcoming Appointments</h6>
+                <h3 class="fw-bold">@Model.UpcomingAppointments.Count</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm text-white bg-success">
+            <div class="card-body text-center">
+                <i class="fas fa-file-medical fa-2x mb-2"></i>
+                <h6 class="card-title">Medical Records</h6>
+                <h3 class="fw-bold">-</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm text-white bg-warning">
+            <div class="card-body text-center">
+                <i class="fas fa-pills fa-2x mb-2"></i>
+                <h6 class="card-title">Active Prescriptions</h6>
+                <h3 class="fw-bold">-</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="row g-4">
+    <div class="col-lg-8">
+        <!-- Upcoming Appointments -->
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-header bg-light">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-calendar-check text-primary"></i> Upcoming Appointments
+                </h5>
+            </div>
+            <div class="card-body">
+                @if (Model.UpcomingAppointments.Any())
+                {
+                    @foreach (var appointment in Model.UpcomingAppointments)
+                    {
+                        <div class="appointment-card border rounded p-3 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    <div class="text-center">
+                                        <div class="badge bg-primary fs-6 mb-1">
+                                            @appointment.AppointmentDate.ToString("MMM dd")
+                                        </div>
+                                        <div class="fw-bold">
+                                            @DateTime.Today.Add(appointment.AppointmentTime).ToString("h:mm tt")
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="mb-1">
+                                        <i class="fas fa-user-md text-success me-2"></i>
+                                        Dr. @appointment.Doctor.User.FullName
+                                    </h6>
+                                    <p class="mb-1 text-muted">@appointment.Doctor.Specialization</p>
+                                    <span class="badge bg-@(appointment.Status == AppointmentStatus.Scheduled ? "primary" : "warning")">
+                                        @appointment.Status
+                                    </span>
+                                </div>
+                                <div class="col-md-3 text-end">
+                                    <a asp-controller="Appointment" asp-action="Details" asp-route-id="@appointment.AppointmentId"
+                                       class="btn btn-sm btn-outline-primary mb-1">
+                                        <i class="fas fa-eye"></i> View
+                                    </a>
+                                    <form asp-controller="Appointment" asp-action="Cancel" asp-route-id="@appointment.AppointmentId"
+                                          method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger"
+                                                onclick="return confirm('Are you sure you want to cancel this appointment?')">
+                                            <i class="fas fa-times"></i> Cancel
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="text-center py-4">
+                        <i class="fas fa-calendar-times fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">No upcoming appointments</p>
+                        <a asp-action="BookAppointment" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Book Your First Appointment
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Recent Medical History -->
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-light">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-history text-info"></i> Recent Medical History
+                </h5>
+            </div>
+            <div class="card-body">
+                @if (Model.RecentAppointments.Any())
+                {
+                    @foreach (var appointment in Model.RecentAppointments)
+                    {
+                        <div class="border-start border-3 border-success ps-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h6 class="mb-1">Visit with Dr. @appointment.Doctor.User.FullName</h6>
+                                    <p class="text-muted mb-1">@appointment.AppointmentDate.ToString("MMMM dd, yyyy")</p>
+                                    <span class="badge bg-success">Completed</span>
+                                </div>
+                                <a asp-controller="Appointment" asp-action="Details" asp-route-id="@appointment.AppointmentId"
+                                   class="btn btn-sm btn-outline-info">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="text-center py-4">
+                        <i class="fas fa-file-medical fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">No medical history available</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <!-- Quick Actions -->
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-header bg-light">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-bolt text-warning"></i> Quick Actions
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a asp-action="BookAppointment" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i> Book Appointment
+                    </a>
+                    <a asp-action="MyAppointments" class="btn btn-outline-primary">
+                        <i class="fas fa-calendar me-2"></i> My Appointments
+                    </a>
+                    <a asp-action="MedicalRecords" class="btn btn-outline-success">
+                        <i class="fas fa-file-medical me-2"></i> Medical Records
+                    </a>
+                    <a asp-action="Prescriptions" class="btn btn-outline-warning">
+                        <i class="fas fa-pills me-2"></i> Prescriptions
+                    </a>
+                    <a asp-controller="Account" asp-action="Profile" class="btn btn-outline-info">
+                        <i class="fas fa-user-edit me-2"></i> Edit Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Health Tips -->
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-light">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-lightbulb text-warning"></i> Health Tips
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="health-tip mb-3">
+                    <div class="d-flex">
+                        <i class="fas fa-water text-primary me-2 mt-1"></i>
+                        <div>
+                            <h6 class="mb-1">Stay Hydrated</h6>
+                            <small class="text-muted">Drink at least 8 glasses of water daily</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="health-tip mb-3">
+                    <div class="d-flex">
+                        <i class="fas fa-running text-success me-2 mt-1"></i>
+                        <div>
+                            <h6 class="mb-1">Exercise Regularly</h6>
+                            <small class="text-muted">30 minutes of exercise, 5 days a week</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="health-tip">
+                    <div class="d-flex">
+                        <i class="fas fa-bed text-info me-2 mt-1"></i>
+                        <div>
+                            <h6 class="mb-1">Get Enough Sleep</h6>
+                            <small class="text-muted">7-9 hours of quality sleep each night</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

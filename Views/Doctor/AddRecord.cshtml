@@ -1,0 +1,85 @@
+﻿@model MedicalRecord
+@{
+    ViewData["Title"] = "Add Medical Record";
+    var patient = ViewBag.Patient as Patient;
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card border-0 shadow">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-file-medical"></i> Add Medical Record
+                </h4>
+                @if (patient != null)
+                {
+                    <p class="mb-0">Patient: @patient.User.FullName (@patient.PatientNumber)</p>
+                }
+            </div>
+            <div class="card-body p-4">
+                <form asp-action="AddRecord" method="post">
+                    <input type="hidden" asp-for="PatientId" />
+                    <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="VisitDate" class="form-label">
+                                <i class="fas fa-calendar text-primary"></i> Visit Date
+                            </label>
+                            <input asp-for="VisitDate" class="form-control" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                            <span asp-validation-for="VisitDate" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Diagnosis" class="form-label">
+                            <i class="fas fa-diagnoses text-danger"></i> Diagnosis
+                        </label>
+                        <input asp-for="Diagnosis" class="form-control" placeholder="Enter primary diagnosis" required />
+                        <span asp-validation-for="Diagnosis" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Symptoms" class="form-label">
+                            <i class="fas fa-thermometer-half text-warning"></i> Symptoms
+                        </label>
+                        <textarea asp-for="Symptoms" class="form-control" rows="3"
+                                  placeholder="Describe the patient's symptoms..."></textarea>
+                        <span asp-validation-for="Symptoms" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Treatment" class="form-label">
+                            <i class="fas fa-procedures text-success"></i> Treatment
+                        </label>
+                        <textarea asp-for="Treatment" class="form-control" rows="3"
+                                  placeholder="Describe the treatment provided..."></textarea>
+                        <span asp-validation-for="Treatment" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Notes" class="form-label">
+                            <i class="fas fa-sticky-note text-info"></i> Additional Notes
+                        </label>
+                        <textarea asp-for="Notes" class="form-control" rows="3"
+                                  placeholder="Any additional notes or recommendations..."></textarea>
+                        <span asp-validation-for="Notes" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save"></i> Save Record
+                        </button>
+                        <a asp-action="Patients" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left"></i> Back to Patients
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

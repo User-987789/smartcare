@@ -1,0 +1,141 @@
+﻿@model PrescriptionViewModel
+@{
+    ViewData["Title"] = "Add Prescription";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card border-0 shadow">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-pills"></i> Add Prescription
+                </h4>
+                <p class="mb-0">Patient: @Model.PatientName</p>
+            </div>
+            <div class="card-body p-4">
+                <form asp-action="AddPrescription" method="post">
+                    <input type="hidden" asp-for="PatientId" />
+                    <input type="hidden" asp-for="DoctorId" />
+                    <input type="hidden" asp-for="AppointmentId" />
+                    <input type="hidden" asp-for="PatientName" />
+
+                    <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="MedicineName" class="form-label">
+                                <i class="fas fa-capsules text-primary"></i> Medicine Name
+                            </label>
+                            <input asp-for="MedicineName" class="form-control"
+                                   placeholder="e.g. Paracetamol, Amoxicillin" required />
+                            <span asp-validation-for="MedicineName" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Dosage" class="form-label">
+                                <i class="fas fa-weight text-warning"></i> Dosage
+                            </label>
+                            <input asp-for="Dosage" class="form-control"
+                                   placeholder="e.g. 500mg, 10ml" required />
+                            <span asp-validation-for="Dosage" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Frequency" class="form-label">
+                                <i class="fas fa-clock text-info"></i> Frequency
+                            </label>
+                            <select asp-for="Frequency" class="form-select" required>
+                                <option value="">-- Select Frequency --</option>
+                                <option value="Once daily">Once daily</option>
+                                <option value="Twice daily">Twice daily</option>
+                                <option value="Three times daily">Three times daily</option>
+                                <option value="Four times daily">Four times daily</option>
+                                <option value="Every 4 hours">Every 4 hours</option>
+                                <option value="Every 6 hours">Every 6 hours</option>
+                                <option value="Every 8 hours">Every 8 hours</option>
+                                <option value="As needed">As needed</option>
+                                <option value="Before meals">Before meals</option>
+                                <option value="After meals">After meals</option>
+                                <option value="At bedtime">At bedtime</option>
+                            </select>
+                            <span asp-validation-for="Frequency" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Duration" class="form-label">
+                                <i class="fas fa-calendar text-danger"></i> Duration (days)
+                            </label>
+                            <select asp-for="Duration" class="form-select" required>
+                                <option value="">-- Select Duration --</option>
+                                <option value="1">1 day</option>
+                                <option value="3">3 days</option>
+                                <option value="5">5 days</option>
+                                <option value="7">7 days (1 week)</option>
+                                <option value="10">10 days</option>
+                                <option value="14">14 days (2 weeks)</option>
+                                <option value="21">21 days (3 weeks)</option>
+                                <option value="30">30 days (1 month)</option>
+                                <option value="60">60 days (2 months)</option>
+                                <option value="90">90 days (3 months)</option>
+                            </select>
+                            <span asp-validation-for="Duration" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Instructions" class="form-label">
+                            <i class="fas fa-info-circle text-secondary"></i> Special Instructions
+                        </label>
+                        <textarea asp-for="Instructions" class="form-control" rows="3"
+                                  placeholder="e.g. Take with food, Avoid alcohol, Complete the full course..."></textarea>
+                        <span asp-validation-for="Instructions" class="text-danger"></span>
+                    </div>
+
+                    <div class="alert alert-info mb-4" role="alert">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <strong>Prescription Summary:</strong><br>
+                        <span id="prescriptionSummary">Please fill in all fields to see prescription summary</span>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save"></i> Add Prescription
+                        </button>
+                        <a href="javascript:history.back()" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        // Update prescription summary as user types
+        function updateSummary() {
+            const medicine = document.getElementById('MedicineName').value;
+            const dosage = document.getElementById('Dosage').value;
+            const frequency = document.getElementById('Frequency').value;
+            const duration = document.getElementById('Duration').value;
+
+            if (medicine && dosage && frequency && duration) {
+                const summary = `${medicine} ${dosage}, ${frequency} for ${duration} days`;
+                document.getElementById('prescriptionSummary').innerText = summary;
+            } else {
+                document.getElementById('prescriptionSummary').innerText = 'Please fill in all fields to see prescription summary';
+            }
+        }
+
+        // Add event listeners
+        document.getElementById('MedicineName').addEventListener('input', updateSummary);
+        document.getElementById('Dosage').addEventListener('input', updateSummary);
+        document.getElementById('Frequency').addEventListener('change', updateSummary);
+        document.getElementById('Duration').addEventListener('change', updateSummary);
+    </script>
+}

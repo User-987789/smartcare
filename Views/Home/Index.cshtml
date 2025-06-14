@@ -1,0 +1,136 @@
+﻿@{
+    ViewData["Title"] = "Welcome to SmartCare";
+}
+
+<div class="hero-section bg-primary text-white py-5 mb-5 rounded">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold">
+            <i class="fas fa-heartbeat"></i> Welcome to SmartCare
+        </h1>
+        <p class="lead">Your Complete Healthcare Management Solution</p>
+        <p class="fs-5">Secure, Efficient, and User-Friendly Patient Portal</p>
+
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <div class="mt-4">
+                <a asp-controller="Account" asp-action="Register" class="btn btn-light btn-lg me-3">
+                    <i class="fas fa-user-plus"></i> Get Started
+                </a>
+                <a asp-controller="Account" asp-action="Login" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="mt-4">
+                @if (User.IsInRole("Patient"))
+                {
+                    <a asp-controller="Patient" asp-action="Dashboard" class="btn btn-light btn-lg">
+                        <i class="fas fa-tachometer-alt"></i> Go to Dashboard
+                    </a>
+                }
+                @if (User.IsInRole("Doctor"))
+                {
+                    <a asp-controller="Doctor" asp-action="Dashboard" class="btn btn-light btn-lg">
+                        <i class="fas fa-tachometer-alt"></i> Go to Dashboard
+                    </a>
+                }
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-controller="Admin" asp-action="Dashboard" class="btn btn-light btn-lg">
+                        <i class="fas fa-tachometer-alt"></i> Go to Dashboard
+                    </a>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="feature-card card h-100 border-0 shadow-sm">
+            <div class="card-body text-center p-4">
+                <div class="feature-icon text-primary mb-3">
+                    <i class="fas fa-user-md fa-3x"></i>
+                </div>
+                <h5 class="card-title">For Doctors</h5>
+                <p class="card-text">Manage patient records, schedule appointments, and provide comprehensive care with our intuitive doctor portal.</p>
+                <ul class="list-unstyled text-start">
+                    <li><i class="fas fa-check text-success"></i> Patient Management</li>
+                    <li><i class="fas fa-check text-success"></i> Appointment Scheduling</li>
+                    <li><i class="fas fa-check text-success"></i> Medical Records</li>
+                    <li><i class="fas fa-check text-success"></i> Prescription Management</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="feature-card card h-100 border-0 shadow-sm">
+            <div class="card-body text-center p-4">
+                <div class="feature-icon text-success mb-3">
+                    <i class="fas fa-user-injured fa-3x"></i>
+                </div>
+                <h5 class="card-title">For Patients</h5>
+                <p class="card-text">Access your health records, book appointments, and stay connected with your healthcare providers.</p>
+                <ul class="list-unstyled text-start">
+                    <li><i class="fas fa-check text-success"></i> Online Appointment Booking</li>
+                    <li><i class="fas fa-check text-success"></i> Medical History Access</li>
+                    <li><i class="fas fa-check text-success"></i> Prescription Viewing</li>
+                    <li><i class="fas fa-check text-success"></i> Secure Communication</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="feature-card card h-100 border-0 shadow-sm">
+            <div class="card-body text-center p-4">
+                <div class="feature-icon text-warning mb-3">
+                    <i class="fas fa-cog fa-3x"></i>
+                </div>
+                <h5 class="card-title">For Administrators</h5>
+                <p class="card-text">Comprehensive system management with user oversight, reporting, and system configuration capabilities.</p>
+                <ul class="list-unstyled text-start">
+                    <li><i class="fas fa-check text-success"></i> User Management</li>
+                    <li><i class="fas fa-check text-success"></i> System Reports</li>
+                    <li><i class="fas fa-check text-success"></i> Analytics Dashboard</li>
+                    <li><i class="fas fa-check text-success"></i> System Configuration</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card bg-light border-0">
+            <div class="card-body text-center p-5">
+                <h3 class="card-title">Why Choose SmartCare?</h3>
+                <div class="row mt-4">
+                    <div class="col-md-3">
+                        <i class="fas fa-shield-alt fa-2x text-primary mb-3"></i>
+                        <h6>Secure & HIPAA Compliant</h6>
+                        <p class="small text-muted">Your data is protected with enterprise-grade security</p>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fas fa-mobile-alt fa-2x text-success mb-3"></i>
+                        <h6>Mobile Friendly</h6>
+                        <p class="small text-muted">Access your portal from any device, anywhere</p>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fas fa-clock fa-2x text-warning mb-3"></i>
+                        <h6>24/7 Access</h6>
+                        <p class="small text-muted">Available whenever you need it</p>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fas fa-users fa-2x text-info mb-3"></i>
+                        <h6>Easy to Use</h6>
+                        <p class="small text-muted">Intuitive interface designed for everyone</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

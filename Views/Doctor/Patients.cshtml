@@ -1,0 +1,116 @@
+﻿@model IEnumerable<Patient>
+@{
+    ViewData["Title"] = "My Patients";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-users text-success"></i> My Patients</h2>
+    <a asp-action="Dashboard" class="btn btn-outline-primary">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+</div>
+
+@if (Model.Any())
+{
+    <div class="row g-4">
+        @foreach (var patient in Model)
+        {
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="patient-avatar me-3">
+                                <i class="fas fa-user-circle fa-3x text-primary"></i>
+                            </div>
+                            <div>
+                                <h5 class="card-title mb-1">@patient.User.FullName</h5>
+                                <p class="text-muted mb-0">Patient ID: @patient.PatientNumber</p>
+                                <small class="text-muted">@patient.Gender, @((DateTime.Now.Year - patient.DateOfBirth.Year)) years old</small>
+                            </div>
+                        </div>
+
+                        <div class="patient-info">
+                            <div class="row g-2 mb-3">
+                                <div class="col-6">
+                                    <small class="text-muted d-block">
+                                        <i class="fas fa-envelope me-1"></i>Email
+                                    </small>
+                                    <span>@patient.User.Email</span>
+                                </div>
+                                <div class="col-6">
+                                    <small class="text-muted d-block">
+                                        <i class="fas fa-phone me-1"></i>Contact
+                                    </small>
+                                    <span>@(patient.User.PhoneNumber ?? "Not provided")</span>
+                                </div>
+                            </div>
+
+                            <div class="row g-2 mb-3">
+                                <div class="col-6">
+                                    <small class="text-muted d-block">
+                                        <i class="fas fa-tint me-1"></i>Blood Group
+                                    </small>
+                                    <span>@(patient.BloodGroup ?? "Unknown")</span>
+                                </div>
+                                <div class="col-6">
+                                    <small class="text-muted d-block">
+                                        <i class="fas fa-calendar me-1"></i>Registered
+                                    </small>
+                                    <span>@patient.RegistrationDate.ToString("MMM yyyy")</span>
+                                </div>
+                            </div>
+
+                            @if (!string.IsNullOrEmpty(patient.Address))
+                            {
+                                <div class="mb-3">
+                                    <small class="text-muted d-block">
+                                        <i class="fas fa-map-marker-alt me-1"></i>Address
+                                    </small>
+                                    <span>@patient.Address</span>
+                                </div>
+                            }
+                        </div>
+
+                        <div class="patient-stats mb-3">
+                            <div class="row text-center">
+                                <div class="col-4">
+                                    <div class="border-end">
+                                        <h6 class="text-primary mb-0">@patient.Appointments.Count</h6>
+                                        <small class="text-muted">Appointments</small>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="border-end">
+                                        <h6 class="text-success mb-0">@patient.MedicalRecords.Count</h6>
+                                        <small class="text-muted">Records</small>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <h6 class="text-warning mb-0">@patient.Prescriptions.Count</h6>
+                                    <small class="text-muted">Prescriptions</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <a asp-action="AddRecord" asp-route-patientId="@patient.PatientId"
+                               class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Add Medical Record
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="text-center py-5">
+        <div class="empty-state">
+            <i class="fas fa-users fa-4x text-muted mb-4"></i>
+            <h4>No Patients Found</h4>
+            <p class="text-muted">You haven't seen any patients yet. Patients will appear here after appointments.</p>
+        </div>
+    </div>
+}

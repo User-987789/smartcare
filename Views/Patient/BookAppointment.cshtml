@@ -1,0 +1,109 @@
+﻿@model AppointmentViewModel
+@{
+    ViewData["Title"] = "Book Appointment";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card border-0 shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-plus"></i> Book New Appointment
+                </h4>
+                <p class="mb-0">Schedule your visit with our healthcare professionals</p>
+            </div>
+            <div class="card-body p-4">
+                <form asp-action="BookAppointment" method="post">
+                    <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="DoctorId" class="form-label">
+                                <i class="fas fa-user-md text-success"></i> Select Doctor
+                            </label>
+                            <select asp-for="DoctorId" class="form-select" required>
+                                <option value="">-- Choose a Doctor --</option>
+                                @foreach (var doctor in Model.AvailableDoctors)
+                                {
+                                    <option value="@doctor.DoctorId">
+                                        Dr. @doctor.User.FullName - @doctor.Specialization
+                                    </option>
+                                }
+                            </select>
+                            <span asp-validation-for="DoctorId" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="AppointmentDate" class="form-label">
+                                <i class="fas fa-calendar text-primary"></i> Preferred Date
+                            </label>
+                            <input asp-for="AppointmentDate" class="form-control" type="date"
+                                   min="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")" required />
+                            <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="AppointmentTime" class="form-label">
+                                <i class="fas fa-clock text-info"></i> Preferred Time
+                            </label>
+                            <select asp-for="AppointmentTime" class="form-select" required>
+                                <option value="">-- Select Time --</option>
+                                <option value="09:00:00">9:00 AM</option>
+                                <option value="09:30:00">9:30 AM</option>
+                                <option value="10:00:00">10:00 AM</option>
+                                <option value="10:30:00">10:30 AM</option>
+                                <option value="11:00:00">11:00 AM</option>
+                                <option value="11:30:00">11:30 AM</option>
+                                <option value="14:00:00">2:00 PM</option>
+                                <option value="14:30:00">2:30 PM</option>
+                                <option value="15:00:00">3:00 PM</option>
+                                <option value="15:30:00">3:30 PM</option>
+                                <option value="16:00:00">4:00 PM</option>
+                                <option value="16:30:00">4:30 PM</option>
+                            </select>
+                            <span asp-validation-for="AppointmentTime" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Reason" class="form-label">
+                            <i class="fas fa-comment-medical text-warning"></i> Reason for Visit
+                        </label>
+                        <textarea asp-for="Reason" class="form-control" rows="3"
+                                  placeholder="Please describe the reason for your visit..." required></textarea>
+                        <span asp-validation-for="Reason" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Notes" class="form-label">
+                            <i class="fas fa-sticky-note text-secondary"></i> Additional Notes (Optional)
+                        </label>
+                        <textarea asp-for="Notes" class="form-control" rows="2"
+                                  placeholder="Any additional information you'd like to share..."></textarea>
+                    </div>
+
+                    <div class="alert alert-info" role="alert">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <strong>Please Note:</strong> Your appointment will be confirmed by our staff.
+                        You will receive a confirmation email shortly.
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-check"></i> Book Appointment
+                        </button>
+                        <a asp-action="Dashboard" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left"></i> Back to Dashboard
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

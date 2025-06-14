@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Appointment>
+@{
+    ViewData["Title"] = "System Reports";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-chart-bar text-primary"></i> System Reports</h2>
+    <a asp-action="Dashboard" class="btn btn-outline-primary">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+</div>
+
+<!-- Report Summary Cards -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body text-center">
+                <h4>@Model.Count()</h4>
+                <p class="mb-0">Total Appointments</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body text-center">
+                <h4>@Model.Count(a => a.Status == AppointmentStatus.Completed)</h4>
+                <p class="mb-0">Completed</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body text-center">
+                <h4>@Model.Count(a => a.Status == AppointmentStatus.Scheduled)</h4>
+                <p class="mb-0">Scheduled</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-danger text-white">
+            <div class="card-body text-center">
+                <h4>@Model.Count(a => a.Status == AppointmentStatus.Cancelled)</h4>
+                <p class="mb-0">Cancelled</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Appointments Report -->
+<div class="card border-0 shadow">
+    <div class="card-header bg-light">
+        <h5 class="mb-0">
+            <i class="fas fa-calendar-alt me-2"></i>Appointments Report
+        </h5>
+    </div>
+    <div class="card-body">
+        @if (Model.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Patient</th>
+                            <th>Doctor</th>
+                            <th>Status</th>
+                            <th>Reason</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var appointment in Model.OrderByDescending(a => a.AppointmentDate))
+                        {
+                            <tr>
+                                <td>
+                                    @appointment.AppointmentDate.ToString("MMM dd, yyyy")
+                                    <br>
+                                    <small class="text-muted">@DateTime.Today.Add(appointment.AppointmentTime).ToString("h:mm tt")</small>
+                                </td>
+                                <td>
+                                    <strong>@appointment.Patient.User.FullName</strong>
+                                    <br>
+                                    <small class="text-muted">@appointment.Patient.PatientNumber</small>
+                                </td>
+                                <td>
+                                    <strong>Dr. @appointment.Doctor.User.FullName</strong>
+                                    <br>
+                                    <small class="text-muted">@appointment.Doctor.Specialization</small>
+                                </td>
+                                <td>
+                                    <span class="badge bg-@(appointment.Status == AppointmentStatus.Scheduled ? "primary" :
+                                                           appointment.Status == AppointmentStatus.Completed ? "success" :
+                                                           appointment.Status == AppointmentStatus.Cancelled ? "danger" : "warning")">
+                                        @appointment.Status
+                                    </span>
+                                </td>
+                                <td>@appointment.Reason</td>
+                                <td>
+                                    <a asp-controller="Appointment" asp-action="Details" asp-route-id="@appointment.AppointmentId"
+                                       class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-eye"></i> View
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-4">
+                <i class="fas fa-chart-bar fa-3x text-muted mb-3"></i>
+                <h5>No Data Available</h5>
+                <p class="text-muted">Reports will appear here as system usage grows.</p>
+            </div>
+        }
+    </div>
+</div>

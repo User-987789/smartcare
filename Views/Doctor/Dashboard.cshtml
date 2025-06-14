@@ -1,0 +1,228 @@
+﻿@model DashboardViewModel
+@{
+    ViewData["Title"] = "Doctor Dashboard";
+}
+
+<div class="dashboard-header mb-4">
+    <div class="row align-items-center">
+        <div class="col">
+            <h2 class="mb-0">
+                <i class="fas fa-stethoscope text-success"></i> Doctor Dashboard
+            </h2>
+            <p class="text-muted mb-0">Welcome back, @Model.UserName</p>
+        </div>
+        <div class="col-auto">
+            <span class="badge bg-success fs-6">@DateTime.Now.ToString("MMMM dd, yyyy")</span>
+        </div>
+    </div>
+</div>
+
+<!-- Today's Schedule Overview -->
+<div class="row g-3 mb-4">
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm text-white bg-success">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h6 class="card-title text-uppercase mb-1">Today's Appointments</h6>
+                        <h2 class="fw-bold mb-0">@Model.TodayAppointments</h2>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar-day fa-2x opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm text-white bg-primary">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h6 class="card-title text-uppercase mb-1">Upcoming Appointments</h6>
+                        <h2 class="fw-bold mb-0">@Model.UpcomingAppointments.Count</h2>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-clock fa-2x opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content Row -->
+<div class="row g-4">
+    <div class="col-lg-8">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-light">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-calendar text-success"></i> Today's & Upcoming Appointments
+                </h5>
+            </div>
+            <div class="card-body">
+                @if (Model.UpcomingAppointments.Any())
+                {
+                    @foreach (var appointment in Model.UpcomingAppointments)
+                    {
+                        <div class="appointment-card border rounded p-3 mb-3
+                                    @(appointment.Status == AppointmentStatus.InProgress ? "border-warning bg-warning bg-opacity-10" : "")
+                                    @(appointment.AppointmentDate.Date == DateTime.Today ? "border-primary bg-primary bg-opacity-10" : "")">
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    <div class="text-center">
+                                        <div class="badge bg-@(appointment.AppointmentDate.Date == DateTime.Today ? "primary" : "secondary") fs-6 mb-1">
+                                            @appointment.AppointmentDate.ToString("MMM dd")
+                                        </div>
+                                        <div class="fw-bold">
+                                            @DateTime.Today.Add(appointment.AppointmentTime).ToString("h:mm tt")
+                                        </div>
+                                        @if (appointment.AppointmentDate.Date == DateTime.Today)
+                                        {
+                                            <small class="text-primary fw-bold">TODAY</small>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <h6 class="mb-1">
+                                        <i class="fas fa-user text-muted me-2"></i>
+                                        @appointment.Patient.User.FullName
+                                    </h6>
+                                    <p class="mb-1 text-muted">@appointment.Reason</p>
+                                    <span class="badge bg-@(appointment.Status == AppointmentStatus.Scheduled ? "primary" :
+                                                           appointment.Status == AppointmentStatus.InProgress ? "warning" :
+                                                           appointment.Status == AppointmentStatus.Completed ? "success" : "secondary")">
+                                        @appointment.Status
+                                    </span>
+                                </div>
+                                <div class="col-md-4 text-end">
+                                    <div class="btn-group-vertical gap-1 w-100">
+                                        <!-- View Details Button -->
+                                        <a asp-controller="Appointment" asp-action="Details" asp-route-id="@appointment.AppointmentId"
+                                           class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-eye"></i> View Details
+                                        </a>
+
+                                        <!-- Action Buttons Based on Status -->
+                                        @if (appointment.Status == AppointmentStatus.Scheduled)
+                                        {
+                                            <!-- Start Consultation -->
+                                            <form asp-controller="Appointment" asp-action="UpdateStatus" asp-route-id="@appointment.AppointmentId"
+                                                  method="post" class="d-inline">
+                                                <input type="hidden" name="status" value="@((int)AppointmentStatus.InProgress)" />
+                                                <button type="submit" class="btn btn-sm btn-warning w-100">
+                                                    <i class="fas fa-play"></i> Start Consultation
+                                                </button>
+                                            </form>
+
+                                            <!-- Quick Complete -->
+                                            <form asp-controller="Appointment" asp-action="UpdateStatus" asp-route-id="@appointment.AppointmentId"
+                                                  method="post" class="d-inline">
+                                                <input type="hidden" name="status" value="@((int)AppointmentStatus.Completed)" />
+                                                <button type="submit" class="btn btn-sm btn-success w-100"
+                                                        onclick="return confirm('Mark this appointment as completed?')">
+                                                    <i class="fas fa-check"></i> Mark Complete
+                                                </button>
+                                            </form>
+                                        }
+
+                                        @if (appointment.Status == AppointmentStatus.InProgress)
+                                        {
+                                            <!-- Complete Consultation -->
+                                            <form asp-controller="Appointment" asp-action="UpdateStatus" asp-route-id="@appointment.AppointmentId"
+                                                  method="post" class="d-inline">
+                                                <input type="hidden" name="status" value="@((int)AppointmentStatus.Completed)" />
+                                                <button type="submit" class="btn btn-sm btn-success w-100">
+                                                    <i class="fas fa-check-circle"></i> Complete Consultation
+                                                </button>
+                                            </form>
+                                        }
+
+                                        @if (appointment.Status == AppointmentStatus.Completed)
+                                        {
+                                            <span class="badge bg-success w-100 py-2">
+                                                <i class="fas fa-check-circle"></i> Completed
+                                            </span>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="text-center py-4">
+                        <i class="fas fa-calendar-times fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">No upcoming appointments</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-light">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-bolt text-warning"></i> Quick Actions
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a asp-action="Patients" class="btn btn-outline-primary">
+                        <i class="fas fa-users me-2"></i> My Patients
+                    </a>
+                    <a asp-action="Appointments" class="btn btn-outline-success">
+                        <i class="fas fa-calendar me-2"></i> All Appointments
+                    </a>
+                    <a asp-controller="Account" asp-action="Profile" class="btn btn-outline-info">
+                        <i class="fas fa-user-edit me-2"></i> Edit Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card border-0 shadow-sm mt-4">
+            <div class="card-header bg-light">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-info-circle text-info"></i> Quick Tips
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <h6 class="text-primary">📅 Today's Appointments</h6>
+                    <small class="text-muted">Click "Start Consultation" to begin, then "Complete" when finished.</small>
+                </div>
+                <div class="mb-3">
+                    <h6 class="text-success">✅ Complete Workflow</h6>
+                    <small class="text-muted">Scheduled → In Progress → Completed</small>
+                </div>
+                <div>
+                    <h6 class="text-warning">⚡ Quick Complete</h6>
+                    <small class="text-muted">Use "Mark Complete" to skip "In Progress" status for quick appointments.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .appointment-card {
+        transition: all 0.3s ease;
+    }
+
+        .appointment-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+    .btn-group-vertical .btn {
+        margin-bottom: 0.25rem;
+    }
+
+        .btn-group-vertical .btn:last-child {
+            margin-bottom: 0;
+        }
+</style>

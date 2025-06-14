@@ -1,0 +1,598 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\models\\viewmodels\\profileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:models\\viewmodels\\profileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\models\\viewmodels\\prescriptionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:models\\viewmodels\\prescriptionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\models\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:models\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\models\\viewmodels\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:models\\viewmodels\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\models\\viewmodels\\appointmentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:models\\viewmodels\\appointmentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\models\\prescription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:models\\prescription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\models\\medicalrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:models\\medicalrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\data\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:data\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\views\\doctor\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:views\\doctor\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\views\\admin\\reports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:views\\admin\\reports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\views\\doctor\\appointments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:views\\doctor\\appointments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\views\\appointment\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:views\\appointment\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\views\\patient\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:views\\patient\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\views\\patient\\myappointments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:views\\patient\\myappointments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\migrations\\20250614105649_makenotesoptional.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:migrations\\20250614105649_makenotesoptional.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|c:\\users\\archi\\source\\repos\\smartcarepatientportal\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B7DC043-7162-453B-B36D-F9A8B02FFA31}|SmartCarePatientPortal.csproj|solutionrelative:views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProfileViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\ViewModels\\ProfileViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\ProfileViewModel.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\ViewModels\\ProfileViewModel.cs",
+              "RelativeToolTip": "Models\\ViewModels\\ProfileViewModel.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T12:17:17.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PrescriptionViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\ViewModels\\PrescriptionViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\PrescriptionViewModel.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\ViewModels\\PrescriptionViewModel.cs",
+              "RelativeToolTip": "Models\\ViewModels\\PrescriptionViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T12:17:12.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\ViewModels\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\ViewModels\\LoginViewModel.cs",
+              "RelativeToolTip": "Models\\ViewModels\\LoginViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T12:17:10.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DashboardViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\ViewModels\\DashboardViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\DashboardViewModel.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\ViewModels\\DashboardViewModel.cs",
+              "RelativeToolTip": "Models\\ViewModels\\DashboardViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T12:17:08.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppointmentViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\ViewModels\\AppointmentViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\AppointmentViewModel.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\ViewModels\\AppointmentViewModel.cs",
+              "RelativeToolTip": "Models\\ViewModels\\AppointmentViewModel.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAYwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T12:17:05.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Prescription.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\Prescription.cs",
+              "RelativeDocumentMoniker": "Models\\Prescription.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\Prescription.cs",
+              "RelativeToolTip": "Models\\Prescription.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T12:17:01.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Patient.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\Patient.cs",
+              "RelativeDocumentMoniker": "Models\\Patient.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\Patient.cs",
+              "RelativeToolTip": "Models\\Patient.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T12:16:58.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Doctor.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\Doctor.cs",
+              "RelativeDocumentMoniker": "Models\\Doctor.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\Doctor.cs",
+              "RelativeToolTip": "Models\\Doctor.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T12:16:52.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "Models\\ApplicationUser.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T12:16:46.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Models\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Models\\ApplicationDbContext.cs",
+              "ViewState": "AQIAADcAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T12:16:42.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DbInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Data\\DbInitializer.cs",
+              "RelativeDocumentMoniker": "Data\\DbInitializer.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Data\\DbInitializer.cs",
+              "RelativeToolTip": "Data\\DbInitializer.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T12:16:28.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T12:16:15.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MedicalRecord.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\MedicalRecord.cs",
+              "RelativeDocumentMoniker": "Models\\MedicalRecord.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\MedicalRecord.cs",
+              "RelativeToolTip": "Models\\MedicalRecord.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAACoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T10:51:36.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAAAwwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T12:15:57.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\Appointment.cs",
+              "RelativeDocumentMoniker": "Models\\Appointment.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Models\\Appointment.cs",
+              "RelativeToolTip": "Models\\Appointment.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAAAAADQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T10:51:12.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AQIAAJ4AAAAAAAAAAAAuwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T12:15:52.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AppointmentController.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Controllers\\AppointmentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AppointmentController.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Controllers\\AppointmentController.cs",
+              "RelativeToolTip": "Controllers\\AppointmentController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAPYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T11:42:13.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PatientController.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Controllers\\PatientController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PatientController.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Controllers\\PatientController.cs",
+              "RelativeToolTip": "Controllers\\PatientController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T10:52:16.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T11:45:03.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DoctorController.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Controllers\\DoctorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DoctorController.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Controllers\\DoctorController.cs",
+              "RelativeToolTip": "Controllers\\DoctorController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAOcAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T11:44:25.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "Views\\Account\\Login.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADUAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T11:45:24.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-14T12:10:54.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Reports.cshtml",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Admin\\Reports.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Reports.cshtml",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Admin\\Reports.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Reports.cshtml",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAAAE0AAACCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T11:31:38.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Appointment\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Appointment\\Details.cshtml",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Appointment\\Details.cshtml",
+              "RelativeToolTip": "Views\\Appointment\\Details.cshtml",
+              "ViewState": "AQIAAO8AAAAAAAAAAAAwwPwAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T11:11:53.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Appointments.cshtml",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Doctor\\Appointments.cshtml",
+              "RelativeDocumentMoniker": "Views\\Doctor\\Appointments.cshtml",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Doctor\\Appointments.cshtml",
+              "RelativeToolTip": "Views\\Doctor\\Appointments.cshtml",
+              "ViewState": "AQIAALEAAAAAAAAAAAAAAKoAAACCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T11:11:24.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Dashboard.cshtml",
+              "ViewState": "AQIAAHIAAAAAAAAAAAAAAIAAAACKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T11:10:54.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Doctor\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Views\\Doctor\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Doctor\\Dashboard.cshtml",
+              "RelativeToolTip": "Views\\Doctor\\Dashboard.cshtml",
+              "ViewState": "AQIAAOMAAAAAAAAAAAAAAOMAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T11:10:34.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Patient\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Views\\Patient\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Patient\\Dashboard.cshtml",
+              "RelativeToolTip": "Views\\Patient\\Dashboard.cshtml",
+              "ViewState": "AQIAADsAAAAAAAAAAAAAAEsAAABwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T11:09:38.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "MyAppointments.cshtml",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Patient\\MyAppointments.cshtml",
+              "RelativeDocumentMoniker": "Views\\Patient\\MyAppointments.cshtml",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Patient\\MyAppointments.cshtml",
+              "RelativeToolTip": "Views\\Patient\\MyAppointments.cshtml",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAwwEQAAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T11:06:34.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "20250614105649_MakeNotesOptional.cs",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Migrations\\20250614105649_MakeNotesOptional.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250614105649_MakeNotesOptional.cs",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Migrations\\20250614105649_MakeNotesOptional.cs",
+              "RelativeToolTip": "Migrations\\20250614105649_MakeNotesOptional.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T10:56:49.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAQwGwAAABtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T10:36:02.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "Views\\Home\\About.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T10:35:38.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T10:34:40.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\archi\\source\\repos\\SmartCarePatientPortal\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "Views\\Home\\Privacy.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-14T10:34:18.55Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

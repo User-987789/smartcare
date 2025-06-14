@@ -1,0 +1,255 @@
+﻿/* Dashboard Specific Styles */
+.dashboard-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+    .dashboard-header h2 {
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+    }
+
+/* Statistics Cards */
+.stats-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    padding: 1.5rem;
+    color: white;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+    .stats-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .stats-card h3 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .stats-card .icon {
+        font-size: 3rem;
+        opacity: 0.7;
+        margin-bottom: 1rem;
+    }
+
+/* Appointment Cards */
+.appointment-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid #667eea;
+}
+
+    .appointment-card:hover {
+        transform: translateX(5px);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .appointment-card.urgent {
+        border-left-color: #dc3545;
+    }
+
+    .appointment-card.completed {
+        border-left-color: #28a745;
+        opacity: 0.8;
+    }
+
+/* Quick Actions */
+.quick-actions .btn {
+    padding: 0.75rem 1.5rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    border-radius: 10px;
+}
+
+    .quick-actions .btn i {
+        width: 20px;
+        text-align: center;
+    }
+
+/* Medical Records */
+.medical-record-card {
+    border-left: 4px solid #28a745;
+    background: #ffffff;
+    border-radius: 0 12px 12px 0;
+    transition: all 0.3s ease;
+}
+
+    .medical-record-card:hover {
+        border-left-width: 6px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+/* Prescription Cards */
+.prescription-card {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: none;
+}
+
+.prescription-info {
+    background: rgba(255,255,255,0.7);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.prescription-status {
+    text-align: right;
+}
+
+/* Patient/Doctor Lists */
+.patient-avatar, .doctor-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.patient-info, .doctor-info {
+    flex: 1;
+}
+
+.patient-stats, .doctor-stats {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+/* Navigation Breadcrumbs */
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.breadcrumb-item a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: #6c757d;
+}
+
+/* Status Badges */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+}
+
+.status-scheduled {
+    background-color: #007bff;
+}
+
+.status-confirmed {
+    background-color: #28a745;
+}
+
+.status-in-progress {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.status-completed {
+    background-color: #28a745;
+}
+
+.status-cancelled {
+    background-color: #dc3545;
+}
+
+/* Tables */
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+}
+
+    .table thead th {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        font-weight: 600;
+        padding: 1rem;
+    }
+
+    .table tbody td {
+        padding: 1rem;
+        border-color: #e9ecef;
+        vertical-align: middle;
+    }
+
+.table-hover tbody tr:hover {
+    background-color: rgba(102, 126, 234, 0.05);
+}
+
+/* Health Tips */
+.health-tip {
+    padding: 1rem;
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+    .health-tip h6 {
+        color: #667eea;
+        font-weight: 600;
+    }
+
+/* Responsive Dashboard */
+@media (max-width: 768px) {
+    .dashboard-header {
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .stats-card {
+        margin-bottom: 1rem;
+    }
+
+    .appointment-card {
+        padding: 1rem;
+    }
+
+        .appointment-card .row {
+            text-align: center;
+        }
+
+        .appointment-card .col-md-3,
+        .appointment-card .col-md-6 {
+            margin-bottom: 1rem;
+        }
+}
+
+/* Print Styles */
+@media print {
+    .dashboard-header,
+    .quick-actions,
+    .btn,
+    .navbar,
+    .footer {
+        display: none !important;
+    }
+
+    .card {
+        box-shadow: none !important;
+        border: 1px solid #000 !important;
+    }
+}

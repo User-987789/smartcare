@@ -1,0 +1,118 @@
+﻿@model IEnumerable<Appointment>
+@{
+    ViewData["Title"] = "My Appointments";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-calendar text-primary"></i> My Appointments</h2>
+    <a asp-action="BookAppointment" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Book New Appointment
+    </a>
+</div>
+
+@if (Model.Any())
+{
+    <div class="row">
+        @foreach (var appointment in Model.GroupBy(a => a.Status))
+        {
+            <div class="col-12 mb-4">
+                <h5 class="text-@(appointment.Key == AppointmentStatus.Scheduled ? "primary" :
+                                 appointment.Key == AppointmentStatus.Completed ? "success" :
+                                 appointment.Key == AppointmentStatus.Cancelled ? "danger" : "warning")">
+                    @appointment.Key Appointments (@appointment.Count())
+                </h5>
+
+                <div class="row g-3">
+                    @foreach (var appt in appointment.OrderByDescending(a => a.AppointmentDate))
+                    {
+                        <div class="col-lg-6">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <div>
+                                            <h6 class="card-title mb-1">
+                                                <i class="fas fa-user-md text-success me-2"></i>
+                                                Dr. @appt.Doctor.User.FullName
+                                            </h6>
+                                            <p class="text-muted mb-0">@appt.Doctor.Specialization</p>
+                                        </div>
+                                        <span class="badge bg-@(appt.Status == AppointmentStatus.Scheduled ? "primary" :
+                                                               appt.Status == AppointmentStatus.Completed ? "success" :
+                                                               appt.Status == AppointmentStatus.Cancelled ? "danger" : "warning") fs-6">
+                                            @appt.Status
+                                        </span>
+                                    </div>
+
+                                    <div class="appointment-details">
+                                        <div class="row g-2 mb-3">
+                                            <div class="col-6">
+                                                <small class="text-muted d-block">
+                                                    <i class="fas fa-calendar me-1"></i> Date
+                                                </small>
+                                                <strong>@appt.AppointmentDate.ToString("MMM dd, yyyy")</strong>
+                                            </div>
+                                            <div class="col-6">
+                                                <small class="text-muted d-block">
+                                                    <i class="fas fa-clock me-1"></i> Time
+                                                </small>
+                                                <strong>@DateTime.Today.Add(appt.AppointmentTime).ToString("h:mm tt")</strong>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <small class="text-muted d-block">
+                                                <i class="fas fa-comment-medical me-1"></i> Reason
+                                            </small>
+                                            <p class="mb-0">@appt.Reason</p>
+                                        </div>
+
+                                        @if (!string.IsNullOrEmpty(appt.Notes))
+                                        {
+                                            <div class="mb-3">
+                                                <small class="text-muted d-block">
+                                                    <i class="fas fa-sticky-note me-1"></i> Notes
+                                                </small>
+                                                <p class="mb-0">@appt.Notes</p>
+                                            </div>
+                                        }
+                                    </div>
+
+                                    <div class="d-flex gap-2">
+                                        <a asp-controller="Appointment" asp-action="Details" asp-route-id="@appt.AppointmentId"
+                                           class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-eye"></i> View Details
+                                        </a>
+
+                                        @if (appt.Status == AppointmentStatus.Scheduled && appt.AppointmentDate > DateTime.Now)
+                                        {
+                                            <form asp-controller="Appointment" asp-action="Cancel" asp-route-id="@appt.AppointmentId"
+                                                  method="post" class="d-inline">
+                                                <button type="submit" class="btn btn-sm btn-outline-danger"
+                                                        onclick="return confirm('Are you sure you want to cancel this appointment?')">
+                                                    <i class="fas fa-times"></i> Cancel
+                                                </button>
+                                            </form>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="text-center py-5">
+        <div class="empty-state">
+            <i class="fas fa-calendar-times fa-4x text-muted mb-4"></i>
+            <h4>No Appointments Found</h4>
+            <p class="text-muted mb-4">You haven't booked any appointments yet.</p>
+            <a asp-action="BookAppointment" class="btn btn-primary btn-lg">
+                <i class="fas fa-plus"></i> Book Your First Appointment
+            </a>
+        </div>
+    </div>
+}

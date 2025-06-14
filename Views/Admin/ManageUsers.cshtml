@@ -1,0 +1,147 @@
+﻿@model IEnumerable<ApplicationUser>
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Manage Users";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-users text-primary"></i> Manage Users</h2>
+    <div>
+        <a asp-controller="Account" asp-action="Register" class="btn btn-primary">
+            <i class="fas fa-user-plus"></i> Add New User
+        </a>
+        <a asp-action="Dashboard" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </a>
+    </div>
+</div>
+
+<!-- User Statistics -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body text-center">
+                <h4>@Model.Count()</h4>
+                <p class="mb-0">Total Users</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body text-center">
+                <h4>@Model.Count(u => u.Role == UserRole.Doctor)</h4>
+                <p class="mb-0">Doctors</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-info text-white">
+            <div class="card-body text-center">
+                <h4>@Model.Count(u => u.Role == UserRole.Patient)</h4>
+                <p class="mb-0">Patients</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body text-center">
+                <h4>@Model.Count(u => u.Role == UserRole.Admin)</h4>
+                <p class="mb-0">Admins</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Users Table -->
+<div class="card border-0 shadow">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Registration Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model.OrderBy(u => u.Role).ThenBy(u => u.LastName))
+                    {
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-@(user.Role == UserRole.Doctor ? "user-md text-success" :
+                                                      user.Role == UserRole.Patient ? "user text-info" :
+                                                      "user-shield text-warning") me-2"></i>
+                                    <div>
+                                        <strong>@user.FullName</strong>
+                                        @if (user.Role == UserRole.Patient && user.Patient != null)
+                                        {
+                                            <br>
+
+                                            <small class="text-muted">ID: @user.Patient.PatientNumber</small>
+                                        }
+                                        @if (user.Role == UserRole.Doctor && user.Doctor != null)
+                                        {
+                                            <br>
+
+                                            <small class="text-muted">@user.Doctor.Specialization</small>
+                                        }
+                                    </div>
+                                </div>
+                            </td>
+                            <td>@user.Email</td>
+                            <td>
+                                <span class="badge bg-@(user.Role == UserRole.Admin ? "warning" :
+                                                       user.Role == UserRole.Doctor ? "success" : "info")">
+                                    @user.Role
+                                </span>
+                            </td>
+                            <td>@user.CreatedDate.ToString("MMM dd, yyyy")</td>
+                            <td>
+                                <span class="badge bg-@(user.IsActive ? "success" : "secondary")">
+                                    @(user.IsActive ? "Active" : "Inactive")
+                                </span>
+                            </td>
+                            <td>
+                                @{
+                                    var currentUserId = UserManager.GetUserId(User);
+                                }
+                                <div class="btn-group btn-group-sm">
+                                    <a href="#" class="btn btn-outline-primary" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-outline-warning" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    @if (user.Id != currentUserId)
+                                    {
+                                        <button class="btn btn-outline-danger" title="@(user.IsActive ? "Deactivate" : "Activate")"
+                                                onclick="toggleUserStatus('@user.Id', @user.IsActive.ToString().ToLower())">
+                                            <i class="fas fa-@(user.IsActive ? "ban" : "check")"></i>
+                                        </button>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function toggleUserStatus(userId, isActive) {
+            const action = isActive ? 'deactivate' : 'activate';
+            if (confirm(`Are you sure you want to ${action} this user?`)) {
+                console.log(`Toggle user ${userId} - currently ${isActive ? 'active' : 'inactive'}`);
+                // You can implement actual AJAX call here if needed
+            }
+        }
+    </script>
+}

@@ -1,0 +1,204 @@
+﻿@model IEnumerable<Appointment>
+@{
+    ViewData["Title"] = "My Appointments";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-calendar text-success"></i> My Appointments</h2>
+    <a asp-action="Dashboard" class="btn btn-outline-primary">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+</div>
+
+@if (Model.Any())
+{
+    <!-- Filter Tabs -->
+    <ul class="nav nav-tabs mb-4" id="appointmentTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="upcoming-tab" data-bs-toggle="tab" data-bs-target="#upcoming" type="button">
+                <i class="fas fa-clock me-2"></i>Upcoming (@Model.Count(a => a.AppointmentDate >= DateTime.Today))
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="completed-tab" data-bs-toggle="tab" data-bs-target="#completed" type="button">
+                <i class="fas fa-check-circle me-2"></i>Completed (@Model.Count(a => a.Status == AppointmentStatus.Completed))
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button">
+                <i class="fas fa-list me-2"></i>All (@Model.Count())
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="appointmentTabContent">
+        <!-- Upcoming Appointments -->
+        <div class="tab-pane fade show active" id="upcoming" role="tabpanel">
+            <div class="row g-3">
+                @foreach (var appointment in Model.Where(a => a.AppointmentDate >= DateTime.Today).OrderBy(a => a.AppointmentDate))
+                {
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div>
+                                        <h6 class="card-title mb-1">
+                                            <i class="fas fa-user me-2"></i>
+                                            @appointment.Patient.User.FullName
+                                        </h6>
+                                        <p class="text-muted mb-0">Patient ID: @appointment.Patient.PatientNumber</p>
+                                    </div>
+                                    <span class="badge bg-@(appointment.Status == AppointmentStatus.Scheduled ? "primary" : "warning") fs-6">
+                                        @appointment.Status
+                                    </span>
+                                </div>
+
+                                <div class="appointment-time mb-3">
+                                    <div class="row g-2">
+                                        <div class="col-6">
+                                            <small class="text-muted d-block">
+                                                <i class="fas fa-calendar me-1"></i>Date
+                                            </small>
+                                            <strong>@appointment.AppointmentDate.ToString("MMM dd, yyyy")</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <small class="text-muted d-block">
+                                                <i class="fas fa-clock me-1"></i>Time
+                                            </small>
+                                            <strong>@DateTime.Today.Add(appointment.AppointmentTime).ToString("h:mm tt")</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <small class="text-muted d-block">
+                                        <i class="fas fa-comment-medical me-1"></i>Reason
+                                    </small>
+                                    <p class="mb-0">@appointment.Reason</p>
+                                </div>
+
+                                <div class="d-flex gap-2">
+                                    <a asp-controller="Appointment" asp-action="Details" asp-route-id="@appointment.AppointmentId"
+                                       class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-eye"></i> View
+                                    </a>
+
+                                    @if (appointment.Status == AppointmentStatus.Scheduled)
+                                    {
+                                        <form asp-controller="Appointment" asp-action="UpdateStatus" asp-route-id="@appointment.AppointmentId"
+                                              method="post" class="d-inline">
+                                            <input type="hidden" name="status" value="@((int)AppointmentStatus.InProgress)" />
+                                            <button type="submit" class="btn btn-sm btn-success">
+                                                <i class="fas fa-play"></i> Start
+                                            </button>
+                                        </form>
+
+                                        <form asp-controller="Appointment" asp-action="UpdateStatus" asp-route-id="@appointment.AppointmentId"
+                                              method="post" class="d-inline">
+                                            <input type="hidden" name="status" value="@((int)AppointmentStatus.Completed)" />
+                                            <button type="submit" class="btn btn-sm btn-outline-success">
+                                                <i class="fas fa-check"></i> Complete
+                                            </button>
+                                        </form>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Completed Appointments -->
+        <div class="tab-pane fade" id="completed" role="tabpanel">
+            <div class="row g-3">
+                @foreach (var appointment in Model.Where(a => a.Status == AppointmentStatus.Completed).OrderByDescending(a => a.AppointmentDate))
+                {
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div>
+                                        <h6 class="card-title mb-1">
+                                            <i class="fas fa-user me-2"></i>
+                                            @appointment.Patient.User.FullName
+                                        </h6>
+                                        <p class="text-muted mb-0">@appointment.AppointmentDate.ToString("MMM dd, yyyy")</p>
+                                    </div>
+                                    <span class="badge bg-success fs-6">Completed</span>
+                                </div>
+
+                                <p class="mb-3">@appointment.Reason</p>
+
+                                <a asp-controller="Appointment" asp-action="Details" asp-route-id="@appointment.AppointmentId"
+                                   class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-eye"></i> View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- All Appointments -->
+        <div class="tab-pane fade" id="all" role="tabpanel">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Patient</th>
+                            <th>Date & Time</th>
+                            <th>Reason</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var appointment in Model.OrderByDescending(a => a.AppointmentDate))
+                        {
+                            <tr>
+                                <td>
+                                    <div>
+                                        <strong>@appointment.Patient.User.FullName</strong>
+                                        <br>
+                                        <small class="text-muted">@appointment.Patient.PatientNumber</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    @appointment.AppointmentDate.ToString("MMM dd, yyyy")
+                                    <br>
+                                    <small class="text-muted">@DateTime.Today.Add(appointment.AppointmentTime).ToString("h:mm tt")</small>
+                                </td>
+                                <td>@appointment.Reason</td>
+                                <td>
+                                    <span class="badge bg-@(appointment.Status == AppointmentStatus.Scheduled ? "primary" :
+                                                           appointment.Status == AppointmentStatus.Completed ? "success" :
+                                                           appointment.Status == AppointmentStatus.Cancelled ? "danger" : "warning")">
+                                        @appointment.Status
+                                    </span>
+                                </td>
+                                <td>
+                                    <a asp-controller="Appointment" asp-action="Details" asp-route-id="@appointment.AppointmentId"
+                                       class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="text-center py-5">
+        <div class="empty-state">
+            <i class="fas fa-calendar-times fa-4x text-muted mb-4"></i>
+            <h4>No Appointments Found</h4>
+            <p class="text-muted">Your appointments will appear here when patients book with you.</p>
+        </div>
+    </div>
+}
